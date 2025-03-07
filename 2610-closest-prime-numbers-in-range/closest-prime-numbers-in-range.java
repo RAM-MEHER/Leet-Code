@@ -5,6 +5,8 @@ class Solution
     {
         int []ans = new int[]{-1,-1};
         int i , first = 0 , second = 0, count = 0 , diff , min_diff = Integer.MAX_VALUE;
+        
+        // Seive Algorithm : 
         boolean []primes = new boolean[right+1];
         Arrays.fill(primes , true);
 
@@ -18,7 +20,7 @@ class Solution
                     primes[j] = false;
             }
         }
-
+        // Sieve ends and we have the prime numbers in primes upto the right value.
         for(i = left ; i <= right ; i++)
         {
             if(primes[i] && i > 1)

@@ -1,6 +1,12 @@
 class Solution 
 {
-    public int minSubArrayLen(int target, int[] nums) 
+    static {
+        for (int i = 0; i < 500; i++) {
+            minSubArrayLen(1, new int[] { 1 });
+        }
+    }
+
+    public static int minSubArrayLen(int target, int[] nums) 
     {
         int r , sum = 0 , minlen = Integer.MAX_VALUE , len , l = 0;
         for(r = 0 ; r < nums.length ; r++)

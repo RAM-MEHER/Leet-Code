@@ -18,3 +18,8 @@ class Solution
         return minlen;
     }
 }
+
+/*
+This is the optimal code for this question
+Time Complexity ~: O(n) 
+*/

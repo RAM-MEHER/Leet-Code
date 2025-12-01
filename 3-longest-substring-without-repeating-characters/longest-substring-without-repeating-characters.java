@@ -25,3 +25,9 @@ class Solution
          return maxlen;
     }
 }
+
+/* 
+Though this used Sliding window technique it is not optimal as i used Stringbuilder to track unique values we can make it optimal by using arrays or hashmap to make optimal
+Time Complexity of my code is : O(n*2) due to stringuilder methods
+Optimal Time Complexity is : O(n). 
+*/

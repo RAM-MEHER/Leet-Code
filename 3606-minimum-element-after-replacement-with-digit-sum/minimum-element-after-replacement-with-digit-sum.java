@@ -14,7 +14,6 @@ class Solution {
                 num /= 10;
             }
             val = sum;
-            System.out.println(val);
         }
         if(min > val)
             min = val;

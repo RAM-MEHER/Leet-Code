@@ -28,3 +28,8 @@ class Solution {
         return min;
     }
 }
+
+/* Time complexity : ~ O(n.d)
+    space complexifty : O(1)
+    
+    this is the optimal logic */

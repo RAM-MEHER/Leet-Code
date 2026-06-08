@@ -47,14 +47,12 @@ class Solution
                 }
             }
         }
-        int []ans = new int[st.size()];
-        int p = 0;
-        for(int i : st)
+         int s = st.size();
+        int ans[] = new int[s];
+        for(int i=s-1;i>=0;i--)
         {
-            ans[p++] = i;
+            ans[i] = st.pop();
         }
-        st.clear();
-
         return ans; 
     }
 }

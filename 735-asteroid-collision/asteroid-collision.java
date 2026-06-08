@@ -23,15 +23,18 @@ class Solution
                                 st.push(asteroids[i]);
                                 break;
                             }
-                            else if((st.peek() > 0) && (st.peek() < Math.abs(asteroids[i])))
-                                st.pop();
-                            else if((st.peek() > 0) && (st.peek() > Math.abs(asteroids[i])))
-                                break;
-                            else if((st.peek() > 0) && (st.peek() == Math.abs(asteroids[i])))
+                            else if(st.peek() > 0) 
                             {
-                                st.pop();
-                                break;
-                            }
+                                if(st.peek() < Math.abs(asteroids[i]))
+                                    st.pop();
+                                else if(st.peek() > Math.abs(asteroids[i]))
+                                    break;
+                                else
+                                {
+                                    st.pop();
+                                    break;
+                                }
+                            } 
                             else
                             {
                                 st.push(asteroids[i]);

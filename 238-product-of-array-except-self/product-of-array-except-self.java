@@ -6,16 +6,11 @@ class Solution
         int []prefix = new int[len];
         int []suffix = new int[len];
 
-        for(int i = 0 ; i < len ; i++)
+        prefix[0] = nums[0]; suffix[j] = nums[j]; --j;
+        for(int i = 1 ; i < len-1 ; i++)
         {
-            if(i == 0)
-                prefix[i] = nums[i];
-            else
-                prefix[i] = prefix[i-1]*nums[i];
-            if(j == len-1)
-                suffix[j] = nums[j];
-            else
-                suffix[j] = suffix[j+1]*nums[j];
+            prefix[i] = prefix[i-1]*nums[i];
+            suffix[j] = suffix[j+1]*nums[j];
             --j;
         }
 

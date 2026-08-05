@@ -11,19 +11,12 @@ class Solution
         while(left <= right)
         {
             if(!check(S.charAt(left)))
-            {
-                left++; continue;
-            }
+                left++;
             else if(!check(S.charAt(right)))
-            {
-                right--; continue;
-            }
+                right--; 
             else
-            {
                 if(S.charAt(left++) != S.charAt(right--))
                     return false;
-                //System.out.println(left + " " + right);
-            }
         }
         return true;
     }

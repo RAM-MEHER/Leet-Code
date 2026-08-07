@@ -1,31 +1,30 @@
 class Solution 
 {
-    static {
-        for (int i = 0; i < 500; i++) {
-            minSubArrayLen(1, new int[] { 1 });
-        }
-    }
-
-    public static int minSubArrayLen(int target, int[] nums) 
+    public int minSubArrayLen(int target, int[] nums) 
     {
-        int r , sum = 0 , minlen = Integer.MAX_VALUE , len , l = 0;
-        for(r = 0 ; r < nums.length ; r++)
+        int len = nums.length , left = 0 , right = 1 , min = Integer.MAX_VALUE , sum = nums[0];
+
+        while(right < len)
         {
-            sum += nums[r];
-            while(sum >= target)
+            while(left <= right && sum >= target)
             {
-                len = r - l + 1;
-                minlen = (minlen < len)? minlen : len;
-                sum -= nums[l++];
+                min = Math.min(min , (right-left));
+                sum -= nums[left++];
             }
+            if(left > right)
+            {
+                right = left;
+            }
+            sum += nums[right++];
         }
-        if(minlen == Integer.MAX_VALUE)
-            return 0;
-        return minlen;
+        while(left <= right && sum >= target)
+        {
+            min = Math.min(min , (right-left));
+            sum -= nums[left++];
+        }
+        if(min != Integer.MAX_VALUE)
+            return min;
+
+        return 0;
     }
 }
-
-/*
-This is the optimal code for this question
-Time Complexity ~: O(n) 
-*/

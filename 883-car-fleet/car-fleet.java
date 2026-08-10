@@ -3,38 +3,31 @@ class Solution {
 
         int n = position.length;
 
-        // Sort cars by position in descending order
-        TreeMap<Integer, Integer> map =
-            new TreeMap<>(Collections.reverseOrder());
+        // Store {position, speed}
+        int[][] cars = new int[n][2];
 
         for (int i = 0; i < n; i++) {
-            map.put(position[i], speed[i]);
+            cars[i][0] = position[i];
+            cars[i][1] = speed[i];
         }
 
-        int i = 0;
-
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            position[i] = entry.getKey();
-            speed[i] = entry.getValue();
-            i++;
-        }
+        // Sort by position: closest to target first
+        Arrays.sort(cars, (a, b) -> Integer.compare(b[0], a[0]));
 
         int fleets = 0;
+        double slowestTime = 0.0;
 
-        // Time taken by the fleet currently ahead
-        double maxTime = 0;
-
-        for (i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
 
             double time =
-                (double)(target - position[i]) / speed[i];
+                (double) (target - cars[i][0]) / cars[i][1];
 
-            if (time > maxTime) {
+            if (time > slowestTime) {
                 fleets++;
-                maxTime = time;
+                slowestTime = time;
             }
         }
 
         return fleets;
     }
-} /* ai code*/
+}

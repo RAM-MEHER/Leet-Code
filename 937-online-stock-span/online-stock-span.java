@@ -1,22 +1,23 @@
 class StockSpanner 
 {
-    int []st ;
+    int [][]st;
     int top ;
     public StockSpanner() 
     {
-        st = new int[10000];
+        st = new int[10000][2];
         top = -1;
     }
     
     public int next(int price) 
     {
-        int ans = 1 , i = top;
-         while(i >= 0 && st[i] <= price)
-         {
-            ans++;  i--;
-         }
-         st[++top] = price;
-        return ans;
+        int span = 1;
+        while(top >= 0 && st[top][0] <= price)
+        {
+            span += st[top--][1];
+        }
+            st[++top][0] = price;
+            st[top][1] = span;
+        return span;
     }
 }
 

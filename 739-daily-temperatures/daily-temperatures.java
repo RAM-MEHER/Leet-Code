@@ -3,18 +3,17 @@ class Solution
     public int[] dailyTemperatures(int[] temperatures) 
     {
         int len = temperatures.length ;
-        int [][]st = new int[len][2];
+        int []st = new int[len];
         int []ans = new int[len];
         int top = -1;
         for(int i = 0 ; i < len ; i++)
         {
-            while(top != -1 && st[top][0] < temperatures[i])
+            while(top != -1 && temperatures[st[top]] < temperatures[i])
             {
-                ans[st[top][1]] = i-st[top][1];
+                ans[st[top]] = i-st[top];
                 top--;
             }
-            st[++top][0] = temperatures[i];
-            st[top][1] = i;
+            st[++top] = i;
         }
         return ans;
     }

@@ -10,27 +10,17 @@ class Solution
         for(int i = 0 ; i < len ; i++)
         {
             if(s.charAt(i) == '(')
-            {
                 open.offerLast(i);
-            }
             else if(s.charAt(i) == '*')
-            {
                 star.offerLast(i);
-            }
             else
             {
                 if(!open.isEmpty())
-                {
                     open.pollLast();
-                }
                 else if(!star.isEmpty())
-                {
                     star.pollFirst();
-                }
                 else
-                {
                     return false;
-                }
             }
         }
         while(!open.isEmpty() && !star.isEmpty())
